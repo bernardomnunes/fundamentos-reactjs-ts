@@ -7,24 +7,14 @@ import { Comment } from "./Comment";
 
 import styles from "./Post.module.css";
 
-// O que ele precisa receber:
-// author: { avatar_url: "", name: "", role:""}
-// publishedAt: Date
-// content : String
-
-interface Content {
-  type: "paragraph" | "link";
-  content: string;
-}
-
-interface PostProps {
+export interface PostProps {
   author: {
     name: string;
     role: string;
     avatarUrl: string;
   };
   publishedAt: Date;
-  content: Content[];
+  content: { type: "paragraph" | "link"; content: string }[];
 }
 
 export function Post({ author, publishedAt, content }: PostProps) {
